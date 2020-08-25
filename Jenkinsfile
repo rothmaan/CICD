@@ -12,7 +12,7 @@ pipline {
         stage('Deploy App') {
             steps { 
                 script {
-                    kubernetesDeploy(configs: "nginx.yaml, kubeconfigId: "myconfig")
+                    kubernetesDeploy(configs: "nginx.yaml, kubeconfigId: "mykubeconfig")
                 }
             }
         } 

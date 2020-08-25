@@ -3,29 +3,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: myweb
-  name: mynginx
+    app: nginx
+  name: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myweb
+      app: nginx
   template:
     metadata:
       labels:
-        app: myweb
+        app: nginx
     spec:
       containers:
       - image: nginx
-        name: mynginx
+        name: nginx
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: myweb
-  name: mynginx
+    app: nginx
+  name: nginx
 spec:
   ports:
   - nodePort: 32223
@@ -33,5 +33,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: mynginx
+    app: nginx
   type: NodePort
